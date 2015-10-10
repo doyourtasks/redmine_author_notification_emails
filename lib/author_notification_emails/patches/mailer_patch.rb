@@ -22,7 +22,7 @@ module AuthorNotificationEmails
                     'X-Auto-Response-Suppress' => 'OOF',
                     'Auto-Submitted' => 'auto-generated',
                     'Sender' => Setting.mail_from,
-                    'From' => ( @author && @author.logged? ) ? @author.mail : Setting.mail_from,
+                    'From' => ( @author && @author.logged? ) ? "{@author.name} <{@author.mail}>" : Setting.mail_from,
                     'Reply-To' => Setting.mail_from,
                     'List-Id' => "<#{Setting.mail_from.to_s.gsub('@', '.')}>"
 
